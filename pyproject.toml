@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stage-0-warmups"
+version = "0.1.0"
+description = "Template Python project"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Jamie" }]
+license = { file = "LICENSE" }
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-cov>=5",
+  "mypy>=1.11",
+  "ruff>=0.6",
+  "black>=24.8",
+  "build>=1.2",
+]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+fix = true
+select = ["E","F","I","UP","B","ANN","SIM"]
+ignore = ["ANN101","ANN102"]
+
+[tool.pytest.ini_options]
+addopts = "-q --cov=src --cov-report=term-missing"
+testpaths = ["tests"]
