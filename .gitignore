@@ -17,3 +17,7 @@ htmlcov/
 
 .vscode/
 .idea/
+
+# build metadata
+src/**.egg-info/
+
